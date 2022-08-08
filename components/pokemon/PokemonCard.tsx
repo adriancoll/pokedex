@@ -3,14 +3,19 @@ import { FC } from "react";
 import { SmallPokemon } from "../../interfaces";
 
 import { Card, Col, Grid, Text, Row, Button } from "@nextui-org/react";
+import Router from "next/router";
 
 type Props = {
   pokemon: SmallPokemon;
 };
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    Router.push(`/pokemon/${pokemon.id}`);
+  };
+
   return (
-    <Grid xs={6} sm={4} md={4} xl={3}>
+    <Grid xs={6} sm={4} md={4} xl={3} onClick={handleClick}>
       <Card isHoverable isPressable>
         <Card.Image
           src={pokemon.img}
