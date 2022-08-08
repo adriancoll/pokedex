@@ -3,7 +3,7 @@ import { GetStaticPaths, NextPage, GetStaticProps } from "next";
 import { Layout } from "../../components/layouts";
 
 import { pokeApi } from "../../services";
-import { Pokemon } from "../../interfaces";
+import { Pokemon, PokemonListResponse } from "../../interfaces";
 interface Props {
   pokemon: Pokemon;
 }
@@ -11,12 +11,7 @@ interface Props {
 const PokemonDetail: NextPage<Props> = ({ pokemon }) => {
   return (
     <Layout title="Algun pokemon">
-      <h1
-        style={{
-          textShadow:
-            "0.04em 0 0 rgb(255 0 0 / 90%), -0.04em 0 0 rgb(0 255 255 / 90%)",
-        }}
-      >
+      <h1>
         {pokemon.id} - {pokemon.name}
       </h1>
     </Layout>
@@ -25,14 +20,15 @@ const PokemonDetail: NextPage<Props> = ({ pokemon }) => {
 
 // You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
+
+  const pokemons = [...Array(151)].map((_, i) => ({
+    params: {
+      id: String(i + 1)
+    }
+  }))
+
   return {
-    paths: [
-      {
-        params: {
-          id: "1",
-        },
-      },
-    ],
+    paths: pokemons,
     fallback: false,
   };
 };
