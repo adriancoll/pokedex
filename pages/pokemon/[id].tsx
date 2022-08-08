@@ -3,7 +3,7 @@ import { GetStaticPaths, NextPage, GetStaticProps } from "next";
 import { Layout } from "../../components/layouts";
 
 import { pokeApi } from "../../services";
-import { Pokemon, PokemonListResponse } from "../../interfaces";
+import { Pokemon } from "../../interfaces";
 interface Props {
   pokemon: Pokemon;
 }
