@@ -1,46 +1,50 @@
-import { FC } from "react";
-
 import type { NextPage } from "next";
+import { GetStaticProps } from "next";
+
+import { Grid } from "@nextui-org/react";
+
+import { pokeApi } from "../services";
+
+import { PokemonListResponse, SmallPokemon } from "../interfaces";
 
 import { Layout } from "../components/layouts";
+import { PokemonCard } from "../components/pokemon";
 
 type Props = {
-  data: {
-    results: {
-      name: string;
-      url: string;
-    }[];
-  };
+  pokemons: SmallPokemon[];
 };
 
-const HomePage: NextPage<Props> = ({ data }) => {
+const HomePage: NextPage<Props> = ({ pokemons }) => {
   return (
     <Layout title="Listado de Pokemons">
-      <ul>
-        {data.results.map(({ name }, index) => (
-          <li key={index}>
-            <p>{name}</p>
-          </li>
+      <Grid.Container gap={2} justify="flex-start">
+        {pokemons.map((pokemon, index) => (
+          <PokemonCard key={index} pokemon={pokemon} />
         ))}
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </ul>
+      </Grid.Container>
     </Layout>
   );
 };
-
-// You should use getStaticProps when:
-//- The data required to render the page is available at build time ahead of a user’s request.
-//- The data comes from a headless CMS.
-//- The data can be publicly cached (not user-specific).
-//- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
-import { GetStaticProps } from "next";
-
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const data = await (await fetch("https://pokeapi.co/api/v2/pokemon")).json(); // your fetch function here
+  const {
+    data: { results },
+  } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=151");
+
+  const pokemons: SmallPokemon[] = await Promise.all(
+    results.map(async (poke, i) => {
+      return {
+        ...poke,
+        id: i + 1,
+        img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
+          i + 1
+        }.svg`,
+      };
+    })
+  );
 
   return {
     props: {
-      data,
+      pokemons,
     },
   };
 };
