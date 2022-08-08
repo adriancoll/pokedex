@@ -8,12 +8,12 @@ type Props = {
   pokemon: SmallPokemon;
 };
 
-export const PokemonCard: FC<Props> = ({ pokemon: { id, img, name } }) => {
+export const PokemonCard: FC<Props> = ({ pokemon }) => {
   return (
     <Grid xs={6} sm={4} md={4} xl={3}>
       <Card isHoverable isPressable>
         <Card.Image
-          src={img}
+          src={pokemon.img}
           objectFit="cover"
           width="100%"
           height={340}
@@ -40,7 +40,7 @@ export const PokemonCard: FC<Props> = ({ pokemon: { id, img, name } }) => {
                     color="#d1d1d1"
                     size={26}
                   >
-                    {name}
+                    {pokemon.name}
                   </Text>
                 </Col>
                 <Col
@@ -49,7 +49,7 @@ export const PokemonCard: FC<Props> = ({ pokemon: { id, img, name } }) => {
                   }}
                 >
                   <Text color="#d1d1d1" size={32}>
-                    # {id}
+                    # {pokemon.id}
                   </Text>
                 </Col>
               </Row>
