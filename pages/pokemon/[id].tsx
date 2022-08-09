@@ -20,7 +20,6 @@ const PokemonByIdPage: NextPage<Props> = ({ pokemon }) => {
   1;
 };
 
-// You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const pokemons = [...Array(151)].map((_, i) => ({
     params: {
@@ -34,16 +33,10 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
   };
 };
 
-// You should use getStaticProps when:
-//- The data required to render the page is available at build time ahead of a user’s request.
-//- The data comes from a headless CMS.
-//- The data can be publicly cached (not user-specific).
-//- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { id } = params as { id: string };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { id } = ctx.params as { id: string };
-
-  return { props: { pokemon: await getPokemonInfo(id) } };
+  return { props: { pokemon: await getPokemonInfo(id) }, revalidate: 86400 };
 };
 
 export default PokemonByIdPage;
