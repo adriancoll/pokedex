@@ -1,3 +1,3 @@
 export * from './Navbar'
-export * from './NoFavourites'
-export * from './FavouritePokemons'
+export * from './favourites/NoFavourites'
+export * from './favourites/FavouritePokemons'
