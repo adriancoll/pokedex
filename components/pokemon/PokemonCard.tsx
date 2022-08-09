@@ -22,6 +22,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
           objectFit="cover"
           width="100%"
           height={340}
+          loading="lazy"
           alt="Card image background"
         />
         <Card.Footer
