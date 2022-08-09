@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import { Navbar } from "../ui";
 
-type Props = { children: JSX.Element; title: string };
+type Props = { children: JSX.Element | JSX.Element[]; title: string };
 
 export const Layout: FC<Props> = ({ children, title }) => {
   return (

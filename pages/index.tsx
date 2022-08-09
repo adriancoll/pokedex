@@ -25,6 +25,7 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
     </Layout>
   );
 };
+
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const {
     data: { results },

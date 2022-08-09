@@ -11,7 +11,7 @@ type Props = {
 
 export const PokemonCard: FC<Props> = ({ pokemon }) => {
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    Router.push(`/pokemon/${pokemon.id}`);
+    Router.push(`/name/${pokemon.name}`);
   };
 
   return (
