@@ -21,6 +21,7 @@ export const PokemonDetail: NextPage<Props> = ({ pokemon }) => {
             <Card.Image
               width="100%"
               height="200px"
+              loading="lazy"
               src={
                 pokemon.sprites.other?.dream_world.front_default ||
                 "/no-image.png"

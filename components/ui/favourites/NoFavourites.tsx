@@ -11,8 +11,8 @@ export const NoFavourites = () => (
       alignSelf: "center",
     }}
   >
-    <Text h1 className="hero glitch layers" data-text="....">
-      <span></span>
+    <Text h1 className="hero glitch layers" data-text="NO TIENES POKEMONS">
+      <Text span>NO TIENES POKEMONS</Text>
       <Image
         width={250}
         height={250}
