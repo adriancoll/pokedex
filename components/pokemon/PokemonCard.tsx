@@ -15,14 +15,14 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
   };
 
   return (
-    <Grid xs={ 6 } sm={ 3 } md={ 2 } xl={ 1 } key={ pokemon.id }>
+    <Grid xs={6} sm={3} md={2} xl={1} key={pokemon.id} onClick={handleClick}>
       <Card isHoverable isPressable>
         <Card.Image
           src={pokemon.img}
-          objectFit="cover"
+          objectFit="contain"
           showSkeleton
           width="100%"
-          height={340}
+          height={140}
           loading="lazy"
           alt="Card image background"
         />
@@ -45,7 +45,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
                     transform="capitalize"
                     weight="semibold"
                     color="#d1d1d1"
-                    size={26}
+                    size={14}
                   >
                     {pokemon.name}
                   </Text>
@@ -55,7 +55,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
                     textAlign: "right",
                   }}
                 >
-                  <Text color="#d1d1d1" size={32}>
+                  <Text color="#d1d1d1" size={12}>
                     # {pokemon.id}
                   </Text>
                 </Col>
