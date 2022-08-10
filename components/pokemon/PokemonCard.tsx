@@ -15,18 +15,21 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
   };
 
   return (
-    <Grid xs={6} sm={3} md={2} xl={1} key={pokemon.id} onClick={handleClick}>
-      <Card isHoverable isPressable>
-        <Card.Image
-          src={pokemon.img}
-          objectFit="contain"
-          showSkeleton
-          width="100%"
-          height={140}
-          loading="lazy"
-          alt="Card image background"
-        />
+    <Grid xs={6} sm={3} md={2} xl={1.5} key={pokemon.id} onClick={handleClick}>
+      <Card isHoverable isPressable variant="shadow" color="$red600">
+        <Card.Body>
+          <Card.Image
+            src={pokemon.img}
+            objectFit="contain"
+            showSkeleton
+            width="100%"
+            height={140}
+            loading="lazy"
+            alt="Card image background"
+          />
+        </Card.Body>
         <Card.Footer
+          isBlurred
           css={{
             position: "absolute",
             borderTop: "$borderWeights$light solid $gray800",
@@ -53,7 +56,13 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
                     textAlign: "right",
                   }}
                 >
-                  <Text color="#d1d1d1" size={12}>
+                  <Text
+                    css={{
+                      color: "$accents7",
+                      fontWeight: "$semibold",
+                      fontSize: "$sm",
+                    }}
+                  >
                     # {pokemon.id}
                   </Text>
                 </Col>
