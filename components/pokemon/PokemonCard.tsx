@@ -27,7 +27,6 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
           alt="Card image background"
         />
         <Card.Footer
-          isBlurred
           css={{
             position: "absolute",
             bgBlur: "#0f111466",
