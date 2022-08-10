@@ -29,7 +29,6 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         <Card.Footer
           css={{
             position: "absolute",
-            bgBlur: "#0f111466",
             borderTop: "$borderWeights$light solid $gray800",
             bottom: 0,
             zIndex: 1,
