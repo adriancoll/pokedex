@@ -15,7 +15,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
   };
 
   return (
-    <Grid xs={6} sm={4} md={4} xl={3} onClick={handleClick}>
+    <Grid xs={ 6 } sm={ 3 } md={ 2 } xl={ 1 } key={ pokemon.id }>
       <Card isHoverable isPressable>
         <Card.Image
           src={pokemon.img}
