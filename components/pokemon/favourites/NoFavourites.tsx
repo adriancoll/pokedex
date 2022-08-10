@@ -17,6 +17,7 @@ export const NoFavourites = () => (
         width={250}
         height={250}
         alt="pokemon favorito"
+        showSkeleton
         css={{
           opacity: 0.05,
         }}

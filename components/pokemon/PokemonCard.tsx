@@ -20,6 +20,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         <Card.Image
           src={pokemon.img}
           objectFit="cover"
+          showSkeleton
           width="100%"
           height={340}
           loading="lazy"

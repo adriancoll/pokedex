@@ -1,9 +1,9 @@
-import { Card, Grid } from "@nextui-org/react";
-import { NextPage } from "next";
 import { useEffect, useState } from "react";
+
+import { NextPage } from "next";
+
 import { Layout } from "../../components/layouts";
-import { PokemonCard } from "../../components/pokemon";
-import { FavouritePokemons, NoFavourites } from "../../components/ui";
+import { FavouritePokemons } from "../../components/pokemon";
 import { pokemons } from "../../utils";
 
 const FavouritesPage: NextPage = () => {

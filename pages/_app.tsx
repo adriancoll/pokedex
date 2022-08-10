@@ -1,9 +1,9 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
+
+import { NextUIProvider } from "@nextui-org/react";
 import { darkTheme } from "../themes";
 
-// 1. import `NextUIProvider` component
-import { NextUIProvider } from "@nextui-org/react";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

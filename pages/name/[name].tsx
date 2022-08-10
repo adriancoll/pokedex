@@ -22,13 +22,13 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
 // static paths
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const { data } = await pokeApi.get<PokemonListResponse>("/pokemon?limit=151");
-
-  const pokemons = data.results.map(({ name }) => ({
-    params: { name },
-  }));
+  const pokemonNames: string[] = data.results.map((pokemon) => pokemon.name);
 
   return {
-    paths: pokemons,
+    paths: pokemonNames.map((name) => ({
+      params: { name },
+    })),
+    // fallback: false
     fallback: "blocking",
   };
 };

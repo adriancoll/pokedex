@@ -24,6 +24,7 @@ export const FavouritePokemonCard: FC<Props> = ({ id }) => {
       >
         <Card.Image
           width={"100%"}
+          showSkeleton
           height={140}
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`} />
       </Card>

@@ -53,24 +53,28 @@ export const PokemonDetail: NextPage<Props> = ({ pokemon }) => {
 
             <Container direction="row" display="flex">
               <Image
+                showSkeleton
                 src={pokemon.sprites.front_default}
                 alt={pokemon.name}
                 width="100"
                 height="100"
               />{" "}
               <Image
+                showSkeleton
                 src={pokemon.sprites.front_shiny}
                 alt={pokemon.name}
                 width="100"
                 height="100"
               />{" "}
               <Image
+                showSkeleton
                 src={pokemon.sprites.back_default}
                 alt={pokemon.name}
                 width="100"
                 height="100"
               />{" "}
               <Image
+                showSkeleton
                 src={pokemon.sprites.back_shiny}
                 alt={pokemon.name}
                 width="100"
